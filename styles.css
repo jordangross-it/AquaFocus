@@ -1,0 +1,462 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+}
+
+h1 {
+    font-size: 6rem;
+    color: white;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 3rem;
+    color: white;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 2rem;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    padding-top: 20px;
+}
+
+.container {
+    width: 100vw;
+    height: 100vh;
+}
+
+.navigation {
+    /*background-color: rgb(0, 0, 0, 0.3);*/
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    position: absolute;
+    width: 100%;
+    z-index: 999;
+}
+
+.logo a {
+    font-size: 1.3rem;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.logo a:hover {
+    color: rgb(87, 73, 49);
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1.3rem;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: rgb(87, 73, 49);
+}
+
+.hamburger {
+    display: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    line-height: 1;
+}
+
+.hero {
+    padding: 38vh 40px;
+    text-align: center;
+    background-image: url("images/aquaOcean.png");
+    background-color: rgb(6, 138, 161);
+    background-size: cover;
+    background-position: center;
+}
+
+.contact-header {
+    padding: 20vh 40px 20vh 40px;
+    text-align: center;
+    background-image: url("images/aquaOcean.png");
+    background-color: rgb(6, 138, 161);
+    background-size: cover;
+    background-position: center;
+}
+
+.panels {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    min-height: 80vh;
+}
+
+.image-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    flex: 1;
+}
+
+.image-panel img {
+    width: 100%;
+    flex: 1;
+    height: 100%;
+    object-fit: cover; /* ensures image fills container without distortion */
+}
+
+#features {
+    padding: 20px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+   /* background-color: rgb(66, 128, 138);*/
+   background: linear-gradient(to bottom, #0d7183, #50a1b5);
+    flex: 1;
+    min-height: 100%;
+}
+
+#features h2 {
+    padding-bottom: 20px;
+    color: white;
+    text-align: start;
+}
+
+#ul {
+    text-align: left;
+}
+
+#features li {
+    list-style: none;
+    font-size: 2rem;
+    color: white;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+#features li::before {
+    content: "✓ ";
+    color: white;
+}
+
+#download {
+    padding: 100px 40px;
+    text-align: center;
+    background-image: url("images/texture3.png");
+    background-color: rgb(131, 118, 89);
+}
+
+.download-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.download-button {
+    background-color: rgba(0,0,0, 0.4);
+    color: white;
+    text-decoration: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.download-button:hover {
+    background-color: rgba(0,0,0, 0.6);
+    color: rgb(99, 193, 201);
+}
+
+.contact-form {
+    background-image: url("images/texture3.png");
+    background-color: rgb(118, 96, 66);
+}
+
+form {
+    padding: 10vh 15vw;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 1.2rem;
+    color: white;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+input, textarea {
+    background-color: white;
+    font-family: 'Quicksand', sans-serif;
+    color: black;
+    margin-bottom: 20px;
+    padding: 15px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 10px;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    box-shadow: 0 0 8px rgb(51, 219, 234);
+}
+
+button {
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    background-color: rgba(0,0,0, 0.4);
+    border: none;
+    border-radius: 50px;
+    padding: 15px 10px;
+}
+
+button:hover {
+    background-color: rgb(0, 0, 0, 0.6);
+    color: rgb(51, 219, 234);
+}
+
+footer {
+    background-image: url("images/aquaOcean.png");
+    text-align: center;
+    padding: 40px 40px 20px 40px;
+    width: 100%;
+    background-color: rgb(13, 113, 131);
+}
+
+footer p {
+    font-size: 1.2rem;
+    color: rgb(255, 255, 255);
+}
+
+#backToTop {
+    display: none;
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    z-index: 9999;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: #00b1d5;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 50%;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin: 0;
+}
+
+#backToTop:hover {
+    background-color: #0499b7;
+}
+
+#backToTop i {
+    font-size: 18px;
+    display: block;
+}
+
+/* --- MOBILE FRIENDLY STYLES --- */
+@media (max-width: 1024px) {
+    .panels {
+        flex-direction: column;
+    }
+    .image-panel,
+    #features {
+        flex: none;
+    }
+    #features {
+        padding: 80px 20px;
+    }
+    .download-buttons {
+        flex-direction: column;
+    }
+    .download-button {
+        width: 80%;
+        max-width: 300px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 3rem;
+    }
+
+    #features h2 {
+        text-align: center;
+        font-size: 2rem;
+    }
+
+    #download h2 {
+        font-size: 2rem;
+    }
+
+    .download-buttons {
+        justify-self: center;
+    }
+
+    p {
+        font-size: 1.5rem;
+    }
+
+    ul {
+        font-size: 1.2rem;
+    }
+
+    #features li {
+        font-size: 1.5rem;
+    }
+
+    .navigation {
+        /* Change to column layout to place links below logo */
+        flex-direction: column; 
+        align-items: flex-start; /* Aligns logo to the left */
+        position: fixed; /* KEEP IT FIXED/STICKY for mobile view, but you had 'relative' */
+        top: 0;
+        left: 0;
+        padding: 15px 20px; /* Reduced padding for mobile */
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.4); /* Apply the desired transparent background here */
+    }
+    
+    .logo a {
+        /* Ensure the logo remains white on mobile */
+        color: white;
+    }
+
+    /* Show the hamburger icon and set its color */
+    .hamburger {
+        display: block;
+        /* Position it near the logo on the top right */
+        position: absolute; 
+        top: 18px; /* Adjusted position to look good with 15px top padding */
+        right: 20px;
+        z-index: 10;
+        color: white; /* Make the hamburger icon white */
+        font-size: 2rem; /* A bit larger for easy tapping */
+    }
+
+    /* Hide the navigation links by default on mobile */
+    .nav-links {
+        display: none;
+        width: 100%; /* Make the menu full width */
+        flex-direction: column; /* Stack links vertically */
+        /* Use a slightly darker background for the dropdown menu for contrast */
+        background-color: rgba(0, 0, 0, 0.8);
+        text-align: center;
+        /* Remove top padding since it will be visible right below the top bar */
+        padding: 0; 
+        position: absolute; /* Position the menu right below the header bar */
+        top: 55px; /* Adjust this value to sit right under the main nav bar (adjust based on padding/height) */
+        left: 0;
+    }
+
+    .nav-links.open {
+        /* This class is added by JavaScript when the hamburger is clicked */
+        display: flex; 
+    }
+
+    .nav-links a {
+        /* Ensure links stay white and bold, matching desktop */
+        color: white; 
+        font-weight: bold;
+        text-decoration: none;
+        font-size: 1.3rem; /* Keep font size consistent */
+        /* Change to padding for better touch targets */
+        padding: 15px 20px; 
+        margin: 0; /* Remove margin, use padding for spacing */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle separator */
+    }
+    
+    /* Ensure the last link doesn't have a bottom border */
+    .nav-links a:last-child {
+        border-bottom: none;
+    }
+
+    .nav-links a:hover {
+        /* Keep your existing hover color */
+        color: rgb(87, 73, 49); 
+    }
+
+    .hero {
+        padding: 25vh 20px;
+    }
+
+    #features {
+        padding: 60px 20px;
+    }
+
+    #download {
+        padding: 60px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2.2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    p {
+        font-size: 1.2rem;
+    }
+    
+    ul {
+        font-size: 1.2rem;
+    }
+
+    li {
+        font-size: 1.2rem;
+    }
+
+    .download-button {
+        font-size: 1rem;
+        padding: 12px 20px;
+    }
+
+    #backToTop {
+        bottom: 20px;
+        /* closer to screen edge */
+        right: 20px;
+        padding: 10px;
+        /* smaller button */
+        font-size: 14px;
+        /* smaller icon */
+        opacity: 0.8;
+        /* slightly transparent */
+    }
+
+    #backToTop:hover {
+        opacity: 1.0;
+        /* full opacity on hover */
+    }
+
+    #backToTop i {
+        font-size: 16px;
+        /* shrink the arrow */
+    }
+}
