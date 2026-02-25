@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -5,29 +9,47 @@
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 
 h1 {
-    font-size: 5.5rem;
-    color: white;
-    margin-bottom: 10px;
+    font-size: clamp(2.5rem, 8vw, 6rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    font-weight: bolder;
+    color: rgb(243, 251, 253);
 }
 
 h2 {
     font-size: 3rem;
-    color: white;
+    color: rgb(243, 251, 253);
     margin-bottom: 20px;
 }
 
 p {
     font-size: 2rem;
-    color: white;
+    color: rgb(243, 251, 253);
     margin-bottom: 20px;
 }
 
 .hero p {
-    padding-top: 20px;
+    padding-top: 15px;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: rgb(0, 118, 151);
+    text-decoration: none;
+    color: rgb(243, 251, 253);
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    transition: all 0.3s, color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: rgb(0, 77, 101);
+    transform: translateY(-2px);
 }
 
 .container {
@@ -36,26 +58,45 @@ p {
 }
 
 .navigation {
-    background:linear-gradient(0deg,rgba(255, 255, 255, 0) 0%, rgb(1, 119, 134) 100%);
+    background: rgba(0, 118, 151, 0.75);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    position: fixed;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 40px;
-    position: absolute;
     width: 100%;
     z-index: 999;
 }
 
 .logo a {
     font-size: 1.3rem;
-    color: white;
     font-weight: bold;
+    color: rgb(243, 251, 253);
     text-decoration: none;
+    position: relative;
     transition: color 0.3s;
 }
 
-.logo a:hover {
-    color: rgb(87, 73, 49);
+.logo a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: rgb(194, 242, 250);
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+.logo a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+    /* Starts appearing from the left */
 }
 
 .nav-links {
@@ -64,15 +105,31 @@ p {
 }
 
 .nav-links a {
-    color: white;
-    font-weight: bold;
+    color: rgb(243, 251, 253);
     text-decoration: none;
+    font-weight: bold;
     font-size: 1.3rem;
+    position: relative;
     transition: color 0.3s;
 }
 
-.nav-links a:hover {
-    color: rgb(87, 73, 49);
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: rgb(194, 242, 250);
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+.nav-links a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+    /* Starts appearing from the left */
 }
 
 .hamburger {
@@ -86,8 +143,7 @@ p {
     padding: 38vh 43px;
     text-align: center;
     background-image: url("images/aquaOcean.png");
-    background-color: rgb(6, 138, 161);
-    background-size: cover;
+    background-color: rgb(0, 118, 151);
     background-position: center;
 }
 
@@ -95,64 +151,98 @@ p {
     padding: 20vh 40px 20vh 40px;
     text-align: center;
     background-image: url("images/aquaOcean.png");
-    background-color: rgb(6, 138, 161);
+    background-color: rgb(0, 118, 151);
     background-size: cover;
     background-position: center;
 }
 
 .panels {
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
+    background: linear-gradient(to bottom, rgb(0, 118, 151), #50a1b5);
     align-items: stretch;
     min-height: 80vh;
+    padding-bottom: 40px;
+}
+
+.panels h2 {
+    width: 100%;
+    text-align: center;
+    padding: 40px 20px;
+    margin: 0;
+    font-weight: 700;
+    color: rgb(243, 251, 253);
+}
+
+.image-frame {
+    max-width: 400px;
+    width: 100%;
+    padding: 10px;
 }
 
 .image-panel {
-    display: flex;
-    flex-direction: column;
-    justify-content: stretch;
     flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .image-panel img {
     width: 100%;
-    flex: 1;
-    height: 100%;
-    object-fit: cover; 
+    height: auto;
+    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
 #features {
-    padding: 20px 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-   /* background-color: rgb(66, 128, 138);*/
-   background: linear-gradient(to bottom, #0d7183, #50a1b5);
     flex: 1;
-    min-height: 100%;
+    padding: 20px;
 }
 
 #features h2 {
     padding-bottom: 20px;
-    color: white;
+    color: rgb(243, 251, 253);
     text-align: start;
 }
 
-#ul {
-    text-align: left;
+#features ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.side-by-side-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 #features li {
-    list-style: none;
-    font-size: 2rem;
-    color: white;
-    line-height: 1.5;
-    margin-bottom: 20px;
+    font-size: 1.7rem;
+    color: rgb(243, 251, 253);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: flex-start;
+    transition: transform 0.2s ease;
+}
+
+#features li:hover {
+    transform: translateX(10px);
 }
 
 #features li::before {
-    content: "✓ ";
-    color: white;
+    content: "✓";
+    margin-right: 15px;
+    font-weight: bold;
+    color: #a8dadc;
 }
 
 #download {
@@ -171,69 +261,94 @@ p {
 }
 
 .download-button {
-    background-color: rgba(0,0,0, 0.4);
-    color: white;
+    background-color: rgb(0, 118, 151);
+    color: rgb(243, 251, 253);
     text-decoration: none;
     padding: 15px 30px;
     font-size: 1.2rem;
     border-radius: 50px;
     cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
+    transition: all 0.3s, color 0.3s;
 }
 
 .download-button:hover {
-    background-color: rgba(0,0,0, 0.6);
-    color: rgb(99, 193, 201);
+    background-color: rgb(0, 77, 101);
+    color: rgb(243, 251, 253);
+    transform: translateY(-2px);
 }
 
 .contact-form {
     background-image: url("images/texture3.png");
     background-color: rgb(118, 96, 66);
+    padding: 80px 20px;
+    display: flex;
+    justify-content: center;
 }
 
 form {
-    padding: 10vh 15vw;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 40px;
+    border-radius: 20px;
     display: flex;
     flex-direction: column;
+    width: 100%;
+    max-width: 600px;
 }
 
 label {
-    font-size: 1.2rem;
-    color: white;
-    margin-bottom: 10px;
-    text-align: left;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: rgb(243, 251, 253);
+    margin-bottom: 8px;
 }
 
-input, textarea {
-    background-color: white;
-    font-family: 'Quicksand', sans-serif;
-    color: black;
-    margin-bottom: 20px;
+input,
+textarea {
+    background-color: rgba(255, 255, 255, 0.95);
+    border: 2px solid transparent;
+    font-family: 'Inter', sans-serif;
+    color: #333;
+    margin-bottom: 25px;
     padding: 15px;
-    font-size: 1.2rem;
-    border: none;
+    font-size: 1.1rem;
     border-radius: 10px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-input:focus, textarea:focus {
+input:focus,
+textarea:focus {
     outline: none;
-    box-shadow: 0 0 8px rgb(51, 219, 234);
+    background-color: #fff;
+    border-color: #c2f2fa; 
+    box-shadow: 0 0 20px rgba(194, 242, 250, 0.3);
+    transform: translateY(-2px); 
+}
+
+textarea {
+    min-height: 150px;
+    resize: vertical; 
 }
 
 button {
     color: white;
     font-size: 1.2rem;
     cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
-    background-color: rgba(0,0,0, 0.4);
+    transition: all 0.3s, color 0.3s;
+    background-color: rgb(0, 118, 151);
     border: none;
     border-radius: 50px;
     padding: 15px 10px;
 }
 
 button:hover {
-    background-color: rgb(0, 0, 0, 0.6);
-    color: rgb(51, 219, 234);
+    transform: translateY(-2px);
+    background-color: rgb(0, 77, 101);
+    color: rgb(243, 251, 253);
 }
 
 footer {
@@ -241,12 +356,12 @@ footer {
     text-align: center;
     padding: 40px 40px 20px 40px;
     width: 100%;
-    background-color: rgb(13, 113, 131);
+    background-color: rgb(0, 118, 151);
 }
 
 footer p {
     font-size: 1.2rem;
-    color: rgb(255, 255, 255);
+    color: rgb(243, 251, 253);
 }
 
 #backToTop {
@@ -258,8 +373,8 @@ footer p {
     font-size: 18px;
     border: none;
     outline: none;
-    background-color: #00b1d5;
-    color: white;
+    background-color: rgb(0, 118, 151);
+    color: rgb(243, 251, 253);
     cursor: pointer;
     padding: 15px;
     border-radius: 50%;
@@ -268,7 +383,7 @@ footer p {
 }
 
 #backToTop:hover {
-    background-color: #0499b7;
+    background-color: rgb(0, 77, 101);
 }
 
 #backToTop i {
@@ -276,25 +391,29 @@ footer p {
     display: block;
 }
 
-/* --- MOBILE FRIENDLY STYLES --- */
 @media (max-width: 1024px) {
     .panels {
         flex-direction: column;
     }
+
     .image-panel,
     #features {
         flex: none;
     }
+
     #features {
         padding: 80px 20px;
     }
+
     .download-buttons {
         flex-direction: column;
     }
+
     .download-button {
         width: 80%;
         max-width: 300px;
         text-align: center;
+        align-self: center;
     }
 }
 
@@ -306,6 +425,20 @@ footer p {
     #features h2 {
         text-align: center;
         font-size: 2rem;
+    }
+
+    .side-by-side-container {
+        flex-direction: column;
+        padding: 0 20px;
+    }
+
+    #features li {
+        font-size: 1rem;
+    }
+
+    .image-panel {
+        margin-top: 0px;
+        max-width: 100%;
     }
 
     #download h2 {
@@ -329,74 +462,62 @@ footer p {
     }
 
     .navigation {
-        /* Change to column layout to place links below logo */
-        flex-direction: column; 
-        align-items: flex-start; /* Aligns logo to the left */
-        position: fixed; /* KEEP IT FIXED/STICKY for mobile view, but you had 'relative' */
+        flex-direction: column;
+        align-items: flex-start;
+        position: fixed;
         top: 0;
         left: 0;
-        padding: 15px 20px; /* Reduced padding for mobile */
+        padding: 15px 20px;
         width: 100%;
-        background-color: rgba(0, 0, 0, 0.4); /* Apply the desired transparent background here */
-    }
-    
-    .logo a {
-        /* Ensure the logo remains white on mobile */
-        color: white;
+        background-color: rgba(0, 109, 151, 0.8);
     }
 
-    /* Show the hamburger icon and set its color */
+    .logo a {
+        color: rgb(243, 251, 253);
+    }
+
     .hamburger {
         display: block;
-        /* Position it near the logo on the top right */
-        position: absolute; 
-        top: 18px; /* Adjusted position to look good with 15px top padding */
+        position: absolute;
+        top: 10px;
         right: 20px;
-        z-index: 10;
-        color: white; /* Make the hamburger icon white */
-        font-size: 2rem; /* A bit larger for easy tapping */
+        z-index: 1000;
+        color: rgb(243, 251, 253);
+        font-size: 2rem;
     }
 
-    /* Hide the navigation links by default on mobile */
     .nav-links {
         display: none;
-        width: 100%; /* Make the menu full width */
-        flex-direction: column; /* Stack links vertically */
-        /* Use a slightly darker background for the dropdown menu for contrast */
-        background-color: rgba(0, 0, 0, 0.8);
+        width: 100%;
+        flex-direction: column;
+        background-color: rgb(0, 109, 151, 0.8);
         text-align: center;
-        /* Remove top padding since it will be visible right below the top bar */
-        padding: 0; 
-        position: absolute; /* Position the menu right below the header bar */
-        top: 55px; /* Adjust this value to sit right under the main nav bar (adjust based on padding/height) */
+        padding: 0;
+        position: absolute;
+        top: 55px;
         left: 0;
     }
 
     .nav-links.open {
-        /* This class is added by JavaScript when the hamburger is clicked */
-        display: flex; 
+        display: flex;
     }
 
     .nav-links a {
-        /* Ensure links stay white and bold, matching desktop */
-        color: white; 
+        color: rgb(243, 251, 253);
         font-weight: bold;
         text-decoration: none;
-        font-size: 1.3rem; /* Keep font size consistent */
-        /* Change to padding for better touch targets */
-        padding: 15px 20px; 
-        margin: 0; /* Remove margin, use padding for spacing */
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Subtle separator */
+        font-size: 1.3rem;
+        padding: 15px 20px;
+        margin: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
-    
-    /* Ensure the last link doesn't have a bottom border */
+
     .nav-links a:last-child {
         border-bottom: none;
     }
 
     .nav-links a:hover {
-        /* Keep your existing hover color */
-        color: rgb(87, 73, 49); 
+        color: rgb(87, 73, 49);
     }
 
     .hero {
@@ -408,6 +529,9 @@ footer p {
     }
 
     #download {
+        align-items: center;
+        align-self: center;
+        justify-content: center;
         padding: 60px 20px;
     }
 }
@@ -424,7 +548,7 @@ footer p {
     p {
         font-size: 1.2rem;
     }
-    
+
     ul {
         font-size: 1.2rem;
     }
